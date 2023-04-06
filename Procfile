@@ -1,0 +1,1 @@
+web gunicorn fullstackbc.wsgi:application --log-file -

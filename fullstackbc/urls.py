@@ -14,13 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from blackcoffer import views
-from blackcoffer.views import ChartDataView
+from django.urls import path, include
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('data/', views.get_data, name='get_data'),
-    path('country_plot/', views.country_plot, name='country-plot'),
-    path('get_charts/', ChartDataView.as_view(), name='chart-data'),
+    path('admin/', admin.site.urls),
+    path('', include('blackcoffer.urls')),
 ]
+
